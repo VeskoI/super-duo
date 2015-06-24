@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/vesko/Development/workspace/portfolio/super-duo/alexandria/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/vesko/Development/workspace/portfolio/super-duo/alexandria/app/build/intermediates/pre-dexed/debug/classes-c7f537ca043ab64eef06ec76ff3762b35bf0fd88.jar" />
+    </item>
+    <item
+        jar="/Users/vesko/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.0/e019d15a13a9786f881141d2df6654b8510bce8b/core-3.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e019d15a13a9786f881141d2df6654b8510bce8b">
+        <dex dex="/Users/vesko/Development/workspace/portfolio/super-duo/alexandria/app/build/intermediates/pre-dexed/debug/core-3.2.0-5e13c57710ca2e20f6a7382a26bc8e735ff70cc8.jar" />
+    </item>
+    <item
+        jar="/Users/vesko/Development/workspace/portfolio/super-duo/alexandria/app/build/intermediates/jacoco/jacocoagent.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="05d4f9e6f36f58a60dc65a4b1af30ee76201a530">
+        <dex dex="/Users/vesko/Development/workspace/portfolio/super-duo/alexandria/app/build/intermediates/pre-dexed/debug/jacocoagent-565f08670e8e12826f5f9d108fd5ac0ba9930028.jar" />
+    </item>
+    <item
+        jar="/Users/vesko/Development/workspace/portfolio/super-duo/alexandria/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/Users/vesko/Development/workspace/portfolio/super-duo/alexandria/app/build/intermediates/pre-dexed/debug/classes-375289c874a80db2e0ede6115e60ceb06b6226e9.jar" />
+    </item>
+    <item
+        jar="/Users/vesko/Development/workspace/portfolio/super-duo/alexandria/app/build/intermediates/exploded-aar/com.journeyapps/zxing-android-embedded/3.0.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="64cb6719337d5cf41c896c9a975d8d5dc9c0a49b">
+        <dex dex="/Users/vesko/Development/workspace/portfolio/super-duo/alexandria/app/build/intermediates/pre-dexed/debug/classes-90e64db3b6f0d6d40efdcdbec1e086304259e2a2.jar" />
+    </item>
+    <item
+        jar="/Users/vesko/Development/workspace/portfolio/super-duo/alexandria/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/vesko/Development/workspace/portfolio/super-duo/alexandria/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-e2fd69738965d6790afd169282e6bc6422ecca44.jar" />
+    </item>
+    <item
+        jar="/Users/vesko/Development/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/Users/vesko/Development/workspace/portfolio/super-duo/alexandria/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-8547bc6d5e11f6a49b40fedf81f9f2aa3a0cb6e8.jar" />
+    </item>
+
+</items>
