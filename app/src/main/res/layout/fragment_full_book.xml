@@ -101,8 +101,6 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignRight="@+id/fullBookTitle"
                     android:layout_alignEnd="@+id/fullBookTitle"/>
-
-
             </RelativeLayout>
 
         </ScrollView>

@@ -22,6 +22,7 @@ import java.net.URL;
 import it.jaschke.alexandria.MainActivity;
 import it.jaschke.alexandria.R;
 import it.jaschke.alexandria.data.AlexandriaContract;
+import it.jaschke.alexandria.data.BooksBroadcastReceiver;
 
 
 /**
@@ -31,12 +32,11 @@ import it.jaschke.alexandria.data.AlexandriaContract;
  */
 public class BookService extends IntentService {
 
-    private final String LOG_TAG = BookService.class.getSimpleName();
-
     public static final String FETCH_BOOK = "it.jaschke.alexandria.services.action.FETCH_BOOK";
     public static final String DELETE_BOOK = "it.jaschke.alexandria.services.action.DELETE_BOOK";
-
     public static final String EAN = "it.jaschke.alexandria.services.extra.EAN";
+
+    private static final String LOG_TAG = BookService.class.getSimpleName();
 
     public BookService() {
         super("Alexandria");
@@ -46,6 +46,7 @@ public class BookService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         if (intent != null) {
             final String action = intent.getAction();
+            Log.d(LOG_TAG, "onHandleIntent: " + action);
             if (FETCH_BOOK.equals(action)) {
                 final String ean = intent.getStringExtra(EAN);
                 fetchBook(ean);
@@ -208,7 +209,11 @@ public class BookService extends IntentService {
         values.put(AlexandriaContract.BookEntry.IMAGE_URL, imgUrl);
         values.put(AlexandriaContract.BookEntry.SUBTITLE, subtitle);
         values.put(AlexandriaContract.BookEntry.DESC, desc);
-        getContentResolver().insert(AlexandriaContract.BookEntry.CONTENT_URI,values);
+        Uri uri = getContentResolver().insert(AlexandriaContract.BookEntry.CONTENT_URI,values);
+        if (uri != null) {
+            // Book successfully added, notify app
+            sendBroadcast(new Intent(BooksBroadcastReceiver.ACTION_BOOK_ADDED));
+        }
     }
 
     private void writeBackAuthors(String ean, JSONArray jsonArray) throws JSONException {

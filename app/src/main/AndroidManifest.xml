@@ -41,6 +41,12 @@
             android:name=".services.BookService"
             android:exported="false" >
         </service>
+
+        <receiver android:name=".data.BooksBroadcastReceiver">
+            <intent-filter>
+                <action android:name="it.jaschke.alexandria.BOOK_ADDED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
