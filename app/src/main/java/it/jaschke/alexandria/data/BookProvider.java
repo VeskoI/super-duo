@@ -8,7 +8,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
-import android.util.Log;
 
 /**
  * Created by saj on 24/12/14.
@@ -270,10 +269,9 @@ public class BookProvider extends ContentProvider {
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
-        // Because a null deletes all rows
-        if (selection == null || rowsDeleted != 0) {
-            getContext().getContentResolver().notifyChange(uri, null);
-        }
+
+        // Always notify the uri for a change. Thus all lists where the item belonged will be refreshed.
+        getContext().getContentResolver().notifyChange(uri, null);
         return rowsDeleted;
     }
 
