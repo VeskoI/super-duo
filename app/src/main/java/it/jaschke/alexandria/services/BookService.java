@@ -23,7 +23,6 @@ import java.net.URL;
 import it.jaschke.alexandria.MainActivity;
 import it.jaschke.alexandria.R;
 import it.jaschke.alexandria.data.AlexandriaContract;
-import it.jaschke.alexandria.data.BooksBroadcastReceiver;
 
 
 /**
@@ -160,6 +159,7 @@ public class BookService extends IntentService {
 
         if (TextUtils.isEmpty(bookJsonString)) {
             Log.d(LOG_TAG, "bookJsonString is empty");
+            broadcastMessage(getString(R.string.server_error));
             return;
         }
         try {
@@ -168,9 +168,7 @@ public class BookService extends IntentService {
             if(bookJson.has(ITEMS)){
                 bookArray = bookJson.getJSONArray(ITEMS);
             }else{
-                Intent messageIntent = new Intent(MainActivity.MESSAGE_EVENT);
-                messageIntent.putExtra(MainActivity.MESSAGE_KEY,getResources().getString(R.string.not_found));
-                LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(messageIntent);
+                broadcastMessage(getResources().getString(R.string.not_found));
                 return;
             }
 
@@ -207,6 +205,12 @@ public class BookService extends IntentService {
         }
     }
 
+    private void broadcastMessage(String message) {
+        Intent messageIntent = new Intent(MainActivity.MESSAGE_EVENT);
+        messageIntent.putExtra(MainActivity.MESSAGE_KEY, message);
+        LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(messageIntent);
+    }
+
     private void writeBackBook(String ean, String title, String subtitle, String desc, String imgUrl) {
         ContentValues values= new ContentValues();
         values.put(AlexandriaContract.BookEntry._ID, ean);
@@ -217,7 +221,7 @@ public class BookService extends IntentService {
         Uri uri = getContentResolver().insert(AlexandriaContract.BookEntry.CONTENT_URI,values);
         if (uri != null) {
             // Book successfully added, notify app
-            sendBroadcast(new Intent(BooksBroadcastReceiver.ACTION_BOOK_ADDED));
+            broadcastMessage(getString(R.string.book_added));
         }
     }
 

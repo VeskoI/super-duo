@@ -30,4 +30,5 @@
     The original version of this app was built by Sascha Jaschke, and a modified version is given to students in the Udacity Android Nanodegree program. </string>
     <string name="scan_not_successful">Scan unsuccessful, please try again.</string>
     <string name="book_added">Book Added!</string>
+    <string name="server_error">Can\'t connect to server now, please try again later.</string>
 </resources>
