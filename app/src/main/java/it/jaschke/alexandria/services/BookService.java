@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.v4.content.LocalBroadcastManager;
+import android.text.TextUtils;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -157,6 +158,10 @@ public class BookService extends IntentService {
         final String IMG_URL_PATH = "imageLinks";
         final String IMG_URL = "thumbnail";
 
+        if (TextUtils.isEmpty(bookJsonString)) {
+            Log.d(LOG_TAG, "bookJsonString is empty");
+            return;
+        }
         try {
             JSONObject bookJson = new JSONObject(bookJsonString);
             JSONArray bookArray;
