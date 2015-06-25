@@ -1,5 +1,8 @@
 package barqsoft.footballscores;
 
+import android.support.v4.view.ViewCompat;
+import android.widget.TextView;
+
 /**
  * Created by yehya khaled on 3/3/2015.
  */
@@ -53,18 +56,6 @@ public class Utilies
         }
     }
 
-    public static String getScores(int home_goals,int awaygoals)
-    {
-        if(home_goals < 0 || awaygoals < 0)
-        {
-            return " - ";
-        }
-        else
-        {
-            return String.valueOf(home_goals) + " - " + String.valueOf(awaygoals);
-        }
-    }
-
     public static int getTeamCrestByTeamName (String teamname)
     {
         if (teamname==null){return R.drawable.no_icon;}
@@ -82,5 +73,21 @@ public class Utilies
             case "Stoke City FC" : return R.drawable.stoke_city;
             default: return R.drawable.no_icon;
         }
+    }
+
+    public static void setScoreText(TextView scoreView, int homeGoals, int awayGoals) {
+        String text;
+        if(homeGoals < 0 || awayGoals < 0) {
+            text = " - ";
+        }
+        else if (ViewCompat.getLayoutDirection(scoreView) == ViewCompat.LAYOUT_DIRECTION_LTR) {
+            // LTR
+            text = String.valueOf(homeGoals) + " - " + String.valueOf(awayGoals);
+        } else {
+            // RTL
+            text = String.valueOf(awayGoals) + " - " + String.valueOf(homeGoals);
+        }
+
+        scoreView.setText(text);
     }
 }
