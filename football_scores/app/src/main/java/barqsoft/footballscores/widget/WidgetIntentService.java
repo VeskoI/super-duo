@@ -40,6 +40,7 @@ public class WidgetIntentService extends IntentService {
         String awayTeam = c.getString(scoresAdapter.COL_AWAY);
         // Note that we should account for LTR or RTL
         String result = Utilies.getScoreText(
+                getApplicationContext(),
                 c.getInt(scoresAdapter.COL_HOME_GOALS),
                 c.getInt(scoresAdapter.COL_AWAY_GOALS));
 
@@ -57,7 +58,7 @@ public class WidgetIntentService extends IntentService {
         remoteViews.setTextViewCompoundDrawables(
                 R.id.widget_team_home,
                 0,
-                Utilies.getTeamCrestByTeamName(homeTeam),
+                Utilies.getTeamCrestByTeamName(getApplicationContext(), homeTeam),
                 0,
                 0);
 
@@ -65,7 +66,7 @@ public class WidgetIntentService extends IntentService {
         remoteViews.setTextViewCompoundDrawables(
                 R.id.widget_team_away,
                 0,
-                Utilies.getTeamCrestByTeamName(awayTeam),
+                Utilies.getTeamCrestByTeamName(getApplicationContext(), awayTeam),
                 0,
                 0);
 
