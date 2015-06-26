@@ -1,7 +1,10 @@
 package barqsoft.footballscores;
 
 import android.support.v4.view.ViewCompat;
+import android.view.View;
 import android.widget.TextView;
+
+import java.util.Locale;
 
 /**
  * Created by yehya khaled on 3/3/2015.
@@ -75,19 +78,40 @@ public class Utilies
         }
     }
 
-    public static void setScoreText(TextView scoreView, int homeGoals, int awayGoals) {
-        String text;
+    public static String getScoreText(int homeGoals, int awayGoals) {
+        return getScoreText(null, homeGoals, awayGoals);
+    }
+
+    public static String getScoreText(TextView scoreView, int homeGoals, int awayGoals) {
         if(homeGoals < 0 || awayGoals < 0) {
-            text = " - ";
-        }
-        else if (ViewCompat.getLayoutDirection(scoreView) == ViewCompat.LAYOUT_DIRECTION_LTR) {
-            // LTR
-            text = String.valueOf(homeGoals) + " - " + String.valueOf(awayGoals);
-        } else {
-            // RTL
-            text = String.valueOf(awayGoals) + " - " + String.valueOf(homeGoals);
+            return " - ";
+
         }
 
-        scoreView.setText(text);
+        boolean isRTL = scoreView != null ? isRTL(scoreView) : isRTL();
+        if (isRTL) {
+            return String.valueOf(awayGoals) + " - " + String.valueOf(homeGoals);
+        } else {
+            // standard LTR
+            return String.valueOf(homeGoals) + " - " + String.valueOf(awayGoals);
+        }
+    }
+
+    public static boolean isRTL() {
+        return isRTL(Locale.getDefault());
+    }
+
+    public static boolean isRTL(Locale locale) {
+        final int directionality = Character.getDirectionality(locale.getDisplayName().charAt(0));
+        return directionality == Character.DIRECTIONALITY_RIGHT_TO_LEFT ||
+                directionality == Character.DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC;
+    }
+
+    /**
+     * Best approach to finding out if it's RTL. Also works when
+     * forcing RTL in Developer options.
+     */
+    public static boolean isRTL(View view) {
+        return ViewCompat.getLayoutDirection(view) == ViewCompat.LAYOUT_DIRECTION_RTL;
     }
 }

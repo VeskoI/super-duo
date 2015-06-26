@@ -2,11 +2,15 @@ package barqsoft.footballscores;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.support.v4.content.LocalBroadcastManager;
+
+import barqsoft.footballscores.widget.ScoresWidgetProvider;
 
 /**
  * Created by yehya khaled on 2/25/2015.
@@ -157,6 +161,7 @@ public class ScoresProvider extends ContentProvider
                     db.endTransaction();
                 }
                 getContext().getContentResolver().notifyChange(uri,null);
+                updateWidget();
                 return returncount;
             default:
                 return super.bulkInsert(uri,values);
@@ -166,5 +171,10 @@ public class ScoresProvider extends ContentProvider
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         return 0;
+    }
+
+    private void updateWidget() {
+        LocalBroadcastManager.getInstance(getContext()).sendBroadcast(
+                new Intent(ScoresWidgetProvider.ACTION_DATA_UPDATE));
     }
 }
