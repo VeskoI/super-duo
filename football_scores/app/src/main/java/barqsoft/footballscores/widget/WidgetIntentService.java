@@ -28,7 +28,7 @@ public class WidgetIntentService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
-        int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(this, ScoresWidgetProvider.class));
+        int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(this, SimpleWidgetProvider.class));
 
         Cursor c = getScoreData();
         if (c == null || !c.moveToFirst()) {
@@ -52,7 +52,7 @@ public class WidgetIntentService extends IntentService {
     }
 
     private RemoteViews initRemoteViews(String homeTeam, String awayTeam, String result) {
-        RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.widget_layout);
+        RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.widget_simple_layout);
 
         remoteViews.setTextViewText(R.id.widget_team_home, homeTeam);
         remoteViews.setContentDescription(R.id.widget_team_home, getString(R.string.cd_home_team_name, homeTeam));

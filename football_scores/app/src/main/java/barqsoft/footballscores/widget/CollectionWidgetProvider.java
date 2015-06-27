@@ -11,7 +11,7 @@ import android.widget.RemoteViews;
 import barqsoft.footballscores.MainActivity;
 import barqsoft.footballscores.R;
 
-import static barqsoft.footballscores.widget.ScoresWidgetProvider.ACTION_DATA_UPDATE;
+import static barqsoft.footballscores.widget.SimpleWidgetProvider.ACTION_DATA_UPDATE;
 
 public class CollectionWidgetProvider extends AppWidgetProvider {
 

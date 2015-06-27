@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.v4.content.LocalBroadcastManager;
 
-import barqsoft.footballscores.widget.ScoresWidgetProvider;
+import barqsoft.footballscores.widget.SimpleWidgetProvider;
 
 /**
  * Created by yehya khaled on 2/25/2015.
@@ -175,6 +175,6 @@ public class ScoresProvider extends ContentProvider
 
     private void updateWidget() {
         LocalBroadcastManager.getInstance(getContext()).sendBroadcast(
-                new Intent(ScoresWidgetProvider.ACTION_DATA_UPDATE));
+                new Intent(SimpleWidgetProvider.ACTION_DATA_UPDATE));
     }
 }
