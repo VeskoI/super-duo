@@ -55,6 +55,7 @@ public class WidgetIntentService extends IntentService {
         RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.widget_layout);
 
         remoteViews.setTextViewText(R.id.widget_team_home, homeTeam);
+        remoteViews.setContentDescription(R.id.widget_team_home, getString(R.string.cd_home_team_name, homeTeam));
         remoteViews.setTextViewCompoundDrawables(
                 R.id.widget_team_home,
                 0,
@@ -62,7 +63,9 @@ public class WidgetIntentService extends IntentService {
                 0,
                 0);
 
+
         remoteViews.setTextViewText(R.id.widget_team_away, awayTeam);
+        remoteViews.setContentDescription(R.id.widget_team_away, getString(R.string.cd_away_team_name, awayTeam));
         remoteViews.setTextViewCompoundDrawables(
                 R.id.widget_team_away,
                 0,
@@ -71,6 +74,7 @@ public class WidgetIntentService extends IntentService {
                 0);
 
         remoteViews.setTextViewText(R.id.widget_score, result);
+        remoteViews.setContentDescription(R.id.widget_score, getString(R.string.cd_score, result));
 
         Intent launchIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, launchIntent, 0);

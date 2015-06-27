@@ -53,4 +53,14 @@
     <string name="team_sunderland" translatable="false">Sunderland AFC</string>
     <string name="team_stoke_city" translatable="false">Stoke City FC</string>
 
+    <!-- Content descriptions for UI elements -->
+    <string name="cd_team_crest">Team icon of <xliff:g id="team_name" example="Arsenal">%1$s</xliff:g></string>
+    <string name="cd_home_team_name">Home team is <xliff:g id="team_name" example="Arsenal">%1$s</xliff:g></string>
+    <string name="cd_away_team_name">Away team is <xliff:g id="team_name" example="Arsenal">%1$s</xliff:g></string>
+    <string name="cd_score">Final score <xliff:g id="match_score" example="2 - 4">%1$s</xliff:g></string>
+    <string name="cd_match_time">Match time <xliff:g id="match_time" example="20:05">%1$s</xliff:g></string>
+    <string name="cd_league">This match is part of <xliff:g id="league_name" example="Seria A">%1$s</xliff:g> league</string>
+    <string name="cd_match_day">This is <xliff:g id="match_day" example="Matchday 42">%1$s</xliff:g> in the league</string>
+    <string name="cd_share_button">Share button</string>
+
 </resources>
