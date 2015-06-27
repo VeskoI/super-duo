@@ -34,7 +34,8 @@
 
         <provider
             android:name=".ScoresProvider"
-            android:authorities="barqsoft.footballscores"/>
+            android:authorities="barqsoft.footballscores"
+            android:exported="true"/>
 
         <receiver
             android:name=".widget.ScoresWidgetProvider">
@@ -48,9 +49,26 @@
                 android:resource="@xml/widget_info"/>
         </receiver>
 
+        <receiver
+            android:name=".widget.CollectionWidgetProvider">
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="barqsoft.footballscores.ACTION_DATA_UPDATE"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/collection_widget_info"/>
+        </receiver>
+
         <service
             android:name=".widget.WidgetIntentService"
             android:exported="false"/>
+
+        <service
+            android:name=".widget.CollectionWidgetRemoteViewsService"
+            android:exported="false"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <service android:name=".service.myFetchService"/>
     </application>

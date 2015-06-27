@@ -62,5 +62,6 @@
     <string name="cd_league">This match is part of <xliff:g id="league_name" example="Seria A">%1$s</xliff:g> league</string>
     <string name="cd_match_day">This is <xliff:g id="match_day" example="Matchday 42">%1$s</xliff:g> in the league</string>
     <string name="cd_share_button">Share button</string>
+    <string name="no_scores_available">No scores available</string>
 
 </resources>
